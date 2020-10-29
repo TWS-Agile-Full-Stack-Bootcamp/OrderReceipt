@@ -1,6 +1,6 @@
-namespace Dotnet_project_template_test
+namespace OrderReceiptTest
 {
-    using Dotnet_project_template;
+    using OrderReceipt;
     using Xunit;
 
     public class UnitTest1

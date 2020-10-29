@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>dotnet_project_template</RootNamespace>
+    <RootNamespace>OrderReceipt</RootNamespace>
     <CodeAnalysisRuleSet>StyleCop.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
