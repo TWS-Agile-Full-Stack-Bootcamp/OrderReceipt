@@ -24,7 +24,7 @@ namespace OrderReceipt
             output.Append(order.CustomerName);
             output.Append(order.CustomerAddress);
             double totSalesTx = 0d;
-            double tot = 0d;
+            double total = 0d;
             foreach (LineItem lineItem in order.LineItems)
             {
                 output.Append(lineItem.Description);
@@ -41,12 +41,12 @@ namespace OrderReceipt
                 totSalesTx += salesTax;
 
                 // calculate total amount of lineItem = price * quantity + 10 % sales tax
-                tot += lineItem.TotalAmount + salesTax;
+                total += lineItem.TotalAmount + salesTax;
             }
 
             output.Append("Sales Tax").Append('\t').Append(totSalesTx);
 
-            output.Append("Total Amount").Append('\t').Append(tot);
+            output.Append("Total Amount").Append('\t').Append(total);
             return output.ToString();
         }
     }
