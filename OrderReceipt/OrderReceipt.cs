@@ -37,18 +37,24 @@ namespace OrderReceipt
                 output.Append(lineItem.TotalAmount);
                 output.Append('\n');
 
-                // calculate sales tax @ rate of 10%
-                double salesTax = lineItem.TotalAmount * SalesTaxRate;
-                totalSalesTax += salesTax;
-
-                // calculate total amount of lineItem = price * quantity + 10 % sales tax
-                total += lineItem.TotalAmount + salesTax;
+                totalSalesTax = CalculateTotal(lineItem, totalSalesTax, ref total);
             }
 
             output.Append("Sales Tax").Append('\t').Append(totalSalesTax);
 
             output.Append("Total Amount").Append('\t').Append(total);
             return output.ToString();
+        }
+
+        private static double CalculateTotal(LineItem lineItem, double totalSalesTax, ref double total)
+        {
+            // calculate sales tax @ rate of 10%
+            double salesTax = lineItem.TotalAmount * SalesTaxRate;
+            totalSalesTax += salesTax;
+
+            // calculate total amount of lineItem = price * quantity + 10 % sales tax
+            total += lineItem.TotalAmount + salesTax;
+            return totalSalesTax;
         }
     }
 }
