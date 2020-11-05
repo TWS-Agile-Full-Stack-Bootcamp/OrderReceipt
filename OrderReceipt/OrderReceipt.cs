@@ -20,17 +20,9 @@ namespace OrderReceipt
         public string PrintReceipt()
         {
             StringBuilder output = new StringBuilder();
-
-            // print headers
             output.Append("======Printing Orders======\n");
-
-            // print date, bill no, customer name
-            //        output.Append("Date - " + order.getDate();
             output.Append(order.CustomerName);
             output.Append(order.CustomerAddress);
-            //        output.Append(order.getCustomerLoyaltyNumber());
-
-            // prints lineItems
             double totSalesTx = 0d;
             double tot = 0d;
             foreach (LineItem lineItem in order.LineItems)
@@ -52,10 +44,8 @@ namespace OrderReceipt
                 tot += lineItem.TotalAmount + salesTax;
             }
 
-            // prints the state tax
             output.Append("Sales Tax").Append('\t').Append(totSalesTx);
 
-            // print total amount
             output.Append("Total Amount").Append('\t').Append(tot);
             return output.ToString();
         }
