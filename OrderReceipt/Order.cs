@@ -4,22 +4,17 @@ namespace OrderReceipt
 {
     public class Order
     {
-        private List<LineItem> li;
-
-        public Order(string customerName, string customerAddress, List<LineItem> li)
+        public Order(string customerName, string customerAddress, List<LineItem> lineItems)
         {
             this.CustomerName = customerName;
             this.CustomerAddress = customerAddress;
-            this.li = li;
+            this.LineItems = lineItems;
         }
 
         public string CustomerName { get; }
 
         public string CustomerAddress { get; }
 
-        public List<LineItem> LineItems
-        {
-            get { return li; }
-        }
+        public List<LineItem> LineItems { get; }
     }
 }
