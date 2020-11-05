@@ -10,6 +10,7 @@ namespace OrderReceipt
      */
     public class OrderReceipt
     {
+        private static readonly double SalesTaxRate = 0.10;
         private Order order;
 
         public OrderReceipt(Order order)
@@ -37,7 +38,7 @@ namespace OrderReceipt
                 output.Append('\n');
 
                 // calculate sales tax @ rate of 10%
-                double salesTax = lineItem.TotalAmount * .10;
+                double salesTax = lineItem.TotalAmount * SalesTaxRate;
                 totalSalesTax += salesTax;
 
                 // calculate total amount of lineItem = price * quantity + 10 % sales tax
