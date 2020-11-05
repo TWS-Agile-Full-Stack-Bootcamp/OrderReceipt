@@ -40,9 +40,9 @@ namespace OrderReceipt
                 totalSalesTax = CalculateTotal(lineItem, totalSalesTax, ref total);
             }
 
-            output.Append("Sales Tax").Append('\t').Append(totalSalesTax);
+            output.Append($"Sales Tax\t{totalSalesTax}");
 
-            output.Append("Total Amount").Append('\t').Append(total);
+            output.Append($"Total Amount\t{total}");
             return output.ToString();
         }
 
