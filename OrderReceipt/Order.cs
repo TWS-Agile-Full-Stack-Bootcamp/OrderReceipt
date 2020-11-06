@@ -62,5 +62,15 @@ namespace OrderReceipt
         {
             return $"{CustomerName}\n{CustomerAddress}";
         }
+
+        public string RenderTotalSalesTax()
+        {
+            return $"Sales Tax\t{this.CalculateTotalSalesTax()}";
+        }
+
+        public string RenderTotalAmountWithTax()
+        {
+            return $"Total Amount\t{this.CalculateTotalAmountWithTax()}";
+        }
     }
 }

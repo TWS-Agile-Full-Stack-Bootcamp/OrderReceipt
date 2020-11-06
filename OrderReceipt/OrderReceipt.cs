@@ -34,26 +34,16 @@ namespace OrderReceipt
             output.Append(order.RenderLineItems());
 
             // prints the state tax
-            output.Append(RenderTotalSalesTax());
+            output.Append(order.RenderTotalSalesTax());
 
             // print total amount
-            output.Append(RenderTotalAmountWithTax());
+            output.Append(order.RenderTotalAmountWithTax());
             return output.ToString();
         }
 
         private static string RenderHeader()
         {
             return HEADER;
-        }
-
-        private string RenderTotalSalesTax()
-        {
-            return $"Sales Tax\t{order.CalculateTotalSalesTax()}";
-        }
-
-        private string RenderTotalAmountWithTax()
-        {
-            return $"Total Amount\t{order.CalculateTotalAmountWithTax()}";
         }
     }
 }
