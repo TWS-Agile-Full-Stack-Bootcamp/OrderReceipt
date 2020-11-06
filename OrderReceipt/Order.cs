@@ -57,5 +57,10 @@ namespace OrderReceipt
         {
             return string.Join("\n", this.lineItems.Select(_ => _.Render()).ToList());
         }
+
+        public string RenderCustomer()
+        {
+            return $"{CustomerName}\n{CustomerAddress}";
+        }
     }
 }
