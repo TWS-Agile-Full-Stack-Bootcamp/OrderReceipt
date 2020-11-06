@@ -31,8 +31,8 @@ namespace OrderReceipt
             //        output.Append(order.getCustomerLoyaltyNumber());
 
             // prints lineItems
-            double totSalesTx = 0d;
-            double tot = 0d;
+            double totalSalesTax = 0d;
+            double totalAmount = 0d;
             foreach (LineItem lineItem in order.LineItems)
             {
                 output.Append(lineItem.Description);
@@ -46,17 +46,17 @@ namespace OrderReceipt
 
                 // calculate sales tax @ rate of 10%
                 double salesTax = lineItem.TotalAmount * .10;
-                totSalesTx += salesTax;
+                totalSalesTax += salesTax;
 
                 // calculate total amount of lineItem = price * quantity + 10 % sales tax
-                tot += lineItem.TotalAmount + salesTax;
+                totalAmount += lineItem.TotalAmount + salesTax;
             }
 
             // prints the state tax
-            output.Append("Sales Tax").Append('\t').Append(totSalesTx);
+            output.Append("Sales Tax").Append('\t').Append(totalSalesTax);
 
             // print total amount
-            output.Append("Total Amount").Append('\t').Append(tot);
+            output.Append("Total Amount").Append('\t').Append(totalAmount);
             return output.ToString();
         }
     }
