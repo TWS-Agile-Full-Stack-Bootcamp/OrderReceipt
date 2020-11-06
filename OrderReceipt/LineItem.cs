@@ -8,11 +8,11 @@ namespace OrderReceipt
         private double price;
         private int quantity;
 
-        public LineItem(string desc, double p, int qty)
+        public LineItem(string description, double price, int quantity)
         {
-            this.description = desc;
-            this.price = p;
-            this.quantity = qty;
+            this.description = description;
+            this.price = price;
+            this.quantity = quantity;
         }
 
         public string Description
