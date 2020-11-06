@@ -39,8 +39,7 @@ namespace OrderReceipt
             double totalAmountWithTax = 0d;
             foreach (LineItem lineItem in order.LineItems)
             {
-                // calculate sales tax @ rate of 10%
-                double salesTax = lineItem.TotalAmount * .10;
+                double salesTax = CalculateSalesTax(lineItem);
                 totalSalesTax += salesTax;
 
                 // calculate total amount of lineItem = price * quantity + 10 % sales tax
@@ -53,6 +52,12 @@ namespace OrderReceipt
             // print total amount
             output.Append($"Total Amount\t{totalAmountWithTax}");
             return output.ToString();
+        }
+
+        private static double CalculateSalesTax(LineItem lineItem)
+        {
+            // calculate sales tax @ rate of 10%
+            return lineItem.TotalAmount * .10;
         }
 
         private static string RenderLineItems(List<LineItem> lineItems)
