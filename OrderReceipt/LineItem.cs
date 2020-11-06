@@ -34,5 +34,10 @@ namespace OrderReceipt
         {
             get { return price * quantity; }
         }
+
+        public static string RenderLineItem(LineItem lineItem)
+        {
+            return $"{lineItem.Description}\t{lineItem.Price:0.0}\t{lineItem.Quantity}\t{lineItem.TotalAmount:0.0}\n";
+        }
     }
 }
