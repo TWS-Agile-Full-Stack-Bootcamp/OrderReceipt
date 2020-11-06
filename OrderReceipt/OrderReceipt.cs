@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Collections.Generic;
+using System.Text;
 
 namespace OrderReceipt
 {
@@ -31,8 +32,9 @@ namespace OrderReceipt
             //        output.Append(order.getCustomerLoyaltyNumber());
 
             // prints lineItems
+            List<LineItem> lineItems = order.LineItems;
             StringBuilder lineItemsStringBuilder = new StringBuilder();
-            foreach (LineItem lineItem in order.LineItems)
+            foreach (LineItem lineItem in lineItems)
             {
                 lineItemsStringBuilder.Append(lineItem.Render());
             }
