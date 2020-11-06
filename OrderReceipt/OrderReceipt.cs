@@ -35,24 +35,34 @@ namespace OrderReceipt
             // prints lineItems
             output.Append(RenderLineItems(order.LineItems));
 
-            double totalSalesTax = 0d;
-            foreach (LineItem lineItem in order.LineItems)
-            {
-                totalSalesTax += lineItem.CalculateSalesTax();
-            }
+            // prints the state tax
+            output.Append($"Sales Tax\t{CalculateTotalSalesTax()}");
 
+            // print total amount
+            output.Append($"Total Amount\t{CalculateTotalAmountWithTax()}");
+            return output.ToString();
+        }
+
+        private double CalculateTotalAmountWithTax()
+        {
             double totalAmountWithTax = 0d;
             foreach (LineItem lineItem in order.LineItems)
             {
                 totalAmountWithTax += lineItem.CalculateTotalAmountWithTax();
             }
 
-            // prints the state tax
-            output.Append($"Sales Tax\t{totalSalesTax}");
+            return totalAmountWithTax;
+        }
 
-            // print total amount
-            output.Append($"Total Amount\t{totalAmountWithTax}");
-            return output.ToString();
+        private double CalculateTotalSalesTax()
+        {
+            double totalSalesTax = 0d;
+            foreach (LineItem lineItem in order.LineItems)
+            {
+                totalSalesTax += lineItem.CalculateSalesTax();
+            }
+
+            return totalSalesTax;
         }
 
         private static string RenderLineItems(List<LineItem> lineItems)
