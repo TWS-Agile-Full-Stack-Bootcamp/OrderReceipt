@@ -33,13 +33,7 @@ namespace OrderReceipt
 
             // prints lineItems
             List<LineItem> lineItems = order.LineItems;
-            StringBuilder lineItemsStringBuilder = new StringBuilder();
-            foreach (LineItem lineItem in lineItems)
-            {
-                lineItemsStringBuilder.Append(lineItem.Render());
-            }
-
-            string lineItemText = lineItemsStringBuilder.ToString();
+            string lineItemText = RenderLineItems(lineItems);
             output.Append(lineItemText);
 
             double totalSalesTax = 0d;
@@ -60,6 +54,18 @@ namespace OrderReceipt
             // print total amount
             output.Append($"Total Amount\t{totalAmount}");
             return output.ToString();
+        }
+
+        private static string RenderLineItems(List<LineItem> lineItems)
+        {
+            StringBuilder lineItemsStringBuilder = new StringBuilder();
+            foreach (LineItem lineItem in lineItems)
+            {
+                lineItemsStringBuilder.Append(lineItem.Render());
+            }
+
+            string lineItemText = lineItemsStringBuilder.ToString();
+            return lineItemText;
         }
     }
 }
