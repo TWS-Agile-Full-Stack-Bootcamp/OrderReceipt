@@ -45,5 +45,11 @@ namespace OrderReceipt
             // calculate sales tax @ rate of 10%
             return this.TotalAmount * .10;
         }
+
+        public double CalculateTotalAmountWithTax()
+        {
+            // calculate total amount of lineItem = price * quantity + 10 % sales tax
+            return this.TotalAmount + this.CalculateSalesTax();
+        }
     }
 }
