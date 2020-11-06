@@ -33,24 +33,12 @@ namespace OrderReceipt
 
         public double CalculateTotalAmountWithTax()
         {
-            double totalAmountWithTax = 0d;
-            foreach (LineItem lineItem in this.LineItems)
-            {
-                totalAmountWithTax += lineItem.CalculateTotalAmountWithTax();
-            }
-
-            return totalAmountWithTax;
+            return this.lineItems.Sum(_ => _.CalculateTotalAmountWithTax());
         }
 
         public double CalculateTotalSalesTax()
         {
-            double totalSalesTax = 0d;
-            foreach (LineItem lineItem in this.LineItems)
-            {
-                totalSalesTax += lineItem.CalculateSalesTax();
-            }
-
-            return totalSalesTax;
+            return this.lineItems.Sum(_ => _.CalculateSalesTax());
         }
 
         public string RenderLineItems()
