@@ -36,11 +36,14 @@ namespace OrderReceipt
             output.Append(RenderLineItems(order.LineItems));
 
             double totalSalesTax = 0d;
-            double totalAmountWithTax = 0d;
             foreach (LineItem lineItem in order.LineItems)
             {
                 totalSalesTax += lineItem.CalculateSalesTax();
+            }
 
+            double totalAmountWithTax = 0d;
+            foreach (LineItem lineItem in order.LineItems)
+            {
                 totalAmountWithTax += lineItem.CalculateTotalAmountWithTax();
             }
 
