@@ -12,6 +12,7 @@ namespace OrderReceipt
      */
     public class OrderReceipt
     {
+        private const string HEADER = "======Printing Orders======\n";
         private Order order;
 
         public OrderReceipt(Order order)
@@ -24,7 +25,7 @@ namespace OrderReceipt
             StringBuilder output = new StringBuilder();
 
             // print headers
-            output.Append("======Printing Orders======\n");
+            output.Append(RenderHeader());
 
             // print date, bill no, customer name
             output.Append(order.RenderCustomer());
@@ -33,11 +34,26 @@ namespace OrderReceipt
             output.Append(order.RenderLineItems());
 
             // prints the state tax
-            output.Append($"Sales Tax\t{order.CalculateTotalSalesTax()}");
+            output.Append(RenderTotalSalesTax());
 
             // print total amount
-            output.Append($"Total Amount\t{order.CalculateTotalAmountWithTax()}");
+            output.Append(RenderTotalAmountWithTax());
             return output.ToString();
+        }
+
+        private static string RenderHeader()
+        {
+            return HEADER;
+        }
+
+        private string RenderTotalSalesTax()
+        {
+            return $"Sales Tax\t{order.CalculateTotalSalesTax()}";
+        }
+
+        private string RenderTotalAmountWithTax()
+        {
+            return $"Total Amount\t{order.CalculateTotalAmountWithTax()}";
         }
     }
 }
