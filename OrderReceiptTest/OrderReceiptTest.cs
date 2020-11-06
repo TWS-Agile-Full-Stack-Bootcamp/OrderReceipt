@@ -32,9 +32,9 @@ namespace OrderReceiptTest
 
             string output = receipt.PrintReceipt();
 
-            Assert.Contains("milk\t10.0\t2\t20.0\n", output);
-            Assert.Contains("biscuits\t5.0\t5\t25.0\n", output);
-            Assert.Contains("chocolate\t20.0\t1\t20.0\n", output);
+            Assert.Contains("milk\t10\t2\t20\n", output);
+            Assert.Contains("biscuits\t5\t5\t25\n", output);
+            Assert.Contains("chocolate\t20\t1\t20\n", output);
             Assert.Contains("Sales Tax\t6.5", output);
             Assert.Contains("Total Amount\t71.5", output);
         }
