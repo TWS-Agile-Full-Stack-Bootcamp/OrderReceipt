@@ -72,5 +72,13 @@ namespace OrderReceipt
         {
             return $"Total Amount\t{this.CalculateTotalAmountWithTax()}";
         }
+
+        public string Render()
+        {
+            return $"{RenderCustomer()}\n" +
+                $"{RenderLineItems()}\n" +
+                $"{RenderTotalSalesTax()}\n" +
+                $"{RenderTotalAmountWithTax()}";
+        }
     }
 }
