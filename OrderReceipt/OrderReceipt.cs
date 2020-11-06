@@ -27,10 +27,7 @@ namespace OrderReceipt
             output.Append("======Printing Orders======\n");
 
             // print date, bill no, customer name
-            //        output.Append("Date - " + order.getDate();
-            output.Append(order.CustomerName);
-            output.Append(order.CustomerAddress);
-            //        output.Append(order.getCustomerLoyaltyNumber());
+            output.Append(RenderCustomer(order));
 
             // prints lineItems
             output.Append(order.RenderLineItems());
@@ -41,6 +38,14 @@ namespace OrderReceipt
             // print total amount
             output.Append($"Total Amount\t{order.CalculateTotalAmountWithTax()}");
             return output.ToString();
+        }
+
+        private string RenderCustomer(Order order)
+        {
+            StringBuilder customerStringBuider = new StringBuilder();
+            customerStringBuider.Append(order.CustomerName);
+            customerStringBuider.Append(order.CustomerAddress);
+            return customerStringBuider.ToString();
         }
     }
 }
