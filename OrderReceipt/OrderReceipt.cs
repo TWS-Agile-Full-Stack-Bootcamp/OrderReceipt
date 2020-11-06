@@ -10,11 +10,11 @@ namespace OrderReceipt
      */
     public class OrderReceipt
     {
-        private Order o;
+        private Order order;
 
-        public OrderReceipt(Order o)
+        public OrderReceipt(Order order)
         {
-            this.o = o;
+            this.order = order;
         }
 
         public string PrintReceipt()
@@ -26,14 +26,14 @@ namespace OrderReceipt
 
             // print date, bill no, customer name
             //        output.Append("Date - " + order.getDate();
-            output.Append(o.CustomerName);
-            output.Append(o.CustomerAddress);
+            output.Append(order.CustomerName);
+            output.Append(order.CustomerAddress);
             //        output.Append(order.getCustomerLoyaltyNumber());
 
             // prints lineItems
             double totSalesTx = 0d;
             double tot = 0d;
-            foreach (LineItem lineItem in o.LineItems)
+            foreach (LineItem lineItem in order.LineItems)
             {
                 output.Append(lineItem.Description);
                 output.Append('\t');
