@@ -35,9 +35,9 @@ namespace OrderReceipt
             get { return price * quantity; }
         }
 
-        public static string RenderLineItem(LineItem lineItem)
+        public string Render()
         {
-            return $"{lineItem.Description}\t{lineItem.Price:0.0}\t{lineItem.Quantity}\t{lineItem.TotalAmount:0.0}\n";
+            return $"{this.Description}\t{this.Price:0.0}\t{this.Quantity}\t{this.TotalAmount:0.0}\n";
         }
     }
 }
