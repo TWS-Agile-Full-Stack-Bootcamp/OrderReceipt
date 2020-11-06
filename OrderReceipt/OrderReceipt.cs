@@ -37,11 +37,11 @@ namespace OrderReceipt
             {
                 output.Append(lineItem.Description);
                 output.Append('\t');
-                output.Append(lineItem.Price);
+                output.Append(lineItem.Price.ToString("0.0"));
                 output.Append('\t');
                 output.Append(lineItem.Quantity);
                 output.Append('\t');
-                output.Append(lineItem.TotalAmount);
+                output.Append(lineItem.TotalAmount.ToString("0.0"));
                 output.Append('\n');
 
                 // calculate sales tax @ rate of 10%

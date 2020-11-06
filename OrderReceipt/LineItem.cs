@@ -4,35 +4,35 @@ namespace OrderReceipt
 {
     public class LineItem
     {
-        private string desc;
-        private double p;
-        private int qty;
+        private string description;
+        private double price;
+        private int quantity;
 
         public LineItem(string desc, double p, int qty)
         {
-            this.desc = desc;
-            this.p = p;
-            this.qty = qty;
+            this.description = desc;
+            this.price = p;
+            this.quantity = qty;
         }
 
         public string Description
         {
-            get { return desc; }
+            get { return description; }
         }
 
         public double Price
         {
-            get { return p; }
+            get { return price; }
         }
 
         public int Quantity
         {
-            get { return qty; }
+            get { return quantity; }
         }
 
         public double TotalAmount
         {
-            get { return p * qty; }
+            get { return price * quantity; }
         }
     }
 }
