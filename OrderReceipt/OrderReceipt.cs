@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace OrderReceipt
 {
@@ -56,14 +57,7 @@ namespace OrderReceipt
 
         private static string RenderLineItems(List<LineItem> lineItems)
         {
-            StringBuilder lineItemsStringBuilder = new StringBuilder();
-            foreach (LineItem lineItem in lineItems)
-            {
-                lineItemsStringBuilder.Append(lineItem.Render());
-            }
-
-            string lineItemText = lineItemsStringBuilder.ToString();
-            return lineItemText;
+            return string.Join("\n", lineItems.Select(_ => _.Render()).ToList());
         }
     }
 }
