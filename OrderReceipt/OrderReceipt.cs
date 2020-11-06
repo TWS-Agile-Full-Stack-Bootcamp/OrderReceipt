@@ -27,18 +27,27 @@ namespace OrderReceipt
             // print headers
             output.Append(RenderHeader());
 
+            output.Append(RenderOrder());
+
+            return output.ToString();
+        }
+
+        private string RenderOrder()
+        {
+            StringBuilder orderRender = new StringBuilder();
             // print date, bill no, customer name
-            output.Append(order.RenderCustomer());
+            orderRender.Append(order.RenderCustomer());
 
             // prints lineItems
-            output.Append(order.RenderLineItems());
+            orderRender.Append(order.RenderLineItems());
 
             // prints the state tax
-            output.Append(order.RenderTotalSalesTax());
+            orderRender.Append(order.RenderTotalSalesTax());
 
             // print total amount
-            output.Append(order.RenderTotalAmountWithTax());
-            return output.ToString();
+            orderRender.Append(order.RenderTotalAmountWithTax());
+
+            return orderRender.ToString();
         }
 
         private static string RenderHeader()
