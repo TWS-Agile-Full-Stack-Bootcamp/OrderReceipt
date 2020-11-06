@@ -31,12 +31,15 @@ namespace OrderReceipt
             //        output.Append(order.getCustomerLoyaltyNumber());
 
             // prints lineItems
+            foreach (LineItem lineItem in order.LineItems)
+            {
+                output.Append(lineItem.Render());
+            }
+
             double totalSalesTax = 0d;
             double totalAmount = 0d;
             foreach (LineItem lineItem in order.LineItems)
             {
-                output.Append(lineItem.Render());
-
                 // calculate sales tax @ rate of 10%
                 double salesTax = lineItem.TotalAmount * .10;
                 totalSalesTax += salesTax;
