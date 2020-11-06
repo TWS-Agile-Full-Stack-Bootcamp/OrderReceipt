@@ -32,9 +32,7 @@ namespace OrderReceipt
             //        output.Append(order.getCustomerLoyaltyNumber());
 
             // prints lineItems
-            List<LineItem> lineItems = order.LineItems;
-            string lineItemText = RenderLineItems(lineItems);
-            output.Append(lineItemText);
+            output.Append(RenderLineItems(order.LineItems));
 
             double totalSalesTax = 0d;
             double totalAmount = 0d;
