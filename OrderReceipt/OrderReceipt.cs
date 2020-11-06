@@ -31,10 +31,14 @@ namespace OrderReceipt
             //        output.Append(order.getCustomerLoyaltyNumber());
 
             // prints lineItems
+            StringBuilder lineItemsStringBuilder = new StringBuilder();
             foreach (LineItem lineItem in order.LineItems)
             {
-                output.Append(lineItem.Render());
+                lineItemsStringBuilder.Append(lineItem.Render());
             }
+
+            string lineItemText = lineItemsStringBuilder.ToString();
+            output.Append(lineItemText);
 
             double totalSalesTax = 0d;
             double totalAmount = 0d;
