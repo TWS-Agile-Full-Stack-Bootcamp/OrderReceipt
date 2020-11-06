@@ -29,5 +29,27 @@ namespace OrderReceipt
         {
             get { return lineItems; }
         }
+
+        public double CalculateTotalAmountWithTax()
+        {
+            double totalAmountWithTax = 0d;
+            foreach (LineItem lineItem in this.LineItems)
+            {
+                totalAmountWithTax += lineItem.CalculateTotalAmountWithTax();
+            }
+
+            return totalAmountWithTax;
+        }
+
+        public double CalculateTotalSalesTax()
+        {
+            double totalSalesTax = 0d;
+            foreach (LineItem lineItem in this.LineItems)
+            {
+                totalSalesTax += lineItem.CalculateSalesTax();
+            }
+
+            return totalSalesTax;
+        }
     }
 }
