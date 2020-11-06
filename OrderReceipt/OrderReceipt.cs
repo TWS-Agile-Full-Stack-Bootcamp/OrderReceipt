@@ -53,10 +53,10 @@ namespace OrderReceipt
             }
 
             // prints the state tax
-            output.Append("Sales Tax").Append('\t').Append(totalSalesTax);
+            output.Append($"Sales Tax\t{totalSalesTax}");
 
             // print total amount
-            output.Append("Total Amount").Append('\t').Append(totalAmount);
+            output.Append($"Total Amount\t{totalAmount}");
             return output.ToString();
         }
     }
