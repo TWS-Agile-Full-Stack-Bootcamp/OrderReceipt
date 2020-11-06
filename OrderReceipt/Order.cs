@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace OrderReceipt
 {
@@ -50,6 +51,11 @@ namespace OrderReceipt
             }
 
             return totalSalesTax;
+        }
+
+        public string RenderLineItems()
+        {
+            return string.Join("\n", this.lineItems.Select(_ => _.Render()).ToList());
         }
     }
 }

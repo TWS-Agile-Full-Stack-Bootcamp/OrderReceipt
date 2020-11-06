@@ -33,7 +33,7 @@ namespace OrderReceipt
             //        output.Append(order.getCustomerLoyaltyNumber());
 
             // prints lineItems
-            output.Append(RenderLineItems(order.LineItems));
+            output.Append(order.RenderLineItems());
 
             // prints the state tax
             output.Append($"Sales Tax\t{order.CalculateTotalSalesTax()}");
@@ -41,11 +41,6 @@ namespace OrderReceipt
             // print total amount
             output.Append($"Total Amount\t{order.CalculateTotalAmountWithTax()}");
             return output.ToString();
-        }
-
-        private static string RenderLineItems(List<LineItem> lineItems)
-        {
-            return string.Join("\n", lineItems.Select(_ => _.Render()).ToList());
         }
     }
 }
