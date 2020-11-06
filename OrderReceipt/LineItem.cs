@@ -39,5 +39,11 @@ namespace OrderReceipt
         {
             return $"{this.Description}\t{this.Price:0.0}\t{this.Quantity}\t{this.TotalAmount:0.0}\n";
         }
+
+        public double CalculateSalesTax()
+        {
+            // calculate sales tax @ rate of 10%
+            return this.TotalAmount * .10;
+        }
     }
 }
